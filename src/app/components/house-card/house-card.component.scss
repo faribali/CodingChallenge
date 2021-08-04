@@ -1,0 +1,106 @@
+@use 'sass:map';
+@use './src/assets/styles/foundation/theme.module' as theme;
+@use './src/assets/styles/foundation/layout.module' as layout;
+@use './src/assets/styles/components/drawer-content.module' as drawer-content;
+
+@debug map.get(theme.$palette, 'foreground');
+@debug map.get(theme.$palette, 'primary');
+
+
+$card-min-width: 300px;
+$margin-left-correction: -16px;
+$divider-adjust: 16px -16px;
+$divider-size: 1px;
+$feature-margin: 8px;
+$device-info-adjust: -4px;
+
+p {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  height: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.margin-left-correction {
+  margin-left: $margin-left-correction !important;
+}
+
+/**
+ *
+ * Rules
+ *
+ */
+
+p {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'secondary-text');
+}
+.card{
+  //flex: 1 1 auto;
+  margin: 10px 20px;
+  flex: 1 1 auto;
+  float: left;
+}
+mat-icon {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'icon');
+  margin-right: map.get(drawer-content.$container-spacing, 'small');
+}
+
+mat-spinner {
+  margin-left: auto;
+}
+
+mat-card {
+  min-width: $card-min-width;
+}
+
+hr {
+  border-top: $divider-size solid theme.mat-color(map.get(theme.$palette, 'foreground'), 'dividers');
+  margin: $divider-adjust;
+}
+
+mat-card-content {
+  margin-bottom: 0;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+mat-list {
+  padding-top: 0;
+}
+
+.bt-colapse-icon {
+  margin: auto;
+}
+.bt-colapse {
+  margin-left: auto;
+}
+
+.disable {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'disabled');
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.feature {
+  margin-bottom: $feature-margin;
+}
+
+.title {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'secondary-text');
+}
+
+.info {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'text');
+  margin-top: $device-info-adjust;
+}

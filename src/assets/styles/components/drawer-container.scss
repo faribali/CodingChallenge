@@ -1,0 +1,17 @@
+/**
+ *
+ * Modules
+ *
+ */
+
+@use './drawer-container.module' as this;
+
+/**
+ *
+ * Rules
+ *
+ */
+
+.app-drawer-container {
+  height: this.$container-height;
+}

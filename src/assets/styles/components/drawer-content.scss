@@ -1,0 +1,23 @@
+/**
+ *
+ * Modules
+ *
+ */
+
+@use 'sass:map';
+@use './drawer-content.module' as this;
+@use './../foundation/layout.module' as layout;
+
+/**
+ *
+ * Rules
+ *
+ */
+
+.app-drawer-content {
+  padding: map.get(this.$container-spacing, 'small');
+
+  @media (min-width: map.get(layout.$breakpoints, 'medium')) {
+    padding: map.get(this.$container-spacing, 'medium');
+  }
+}

@@ -1,0 +1,116 @@
+/**
+ *
+ * Modules
+ *
+ */
+
+@use 'sass:math';
+@use '~@angular/material/theming' as mat-theming;
+@forward '~@angular/material/theming';
+
+/**
+ *
+ * Functions
+ *
+ */
+
+@function calc-typeset-track($scale) {
+  $a: -0.0223;
+  $b: 0.185;
+  $c: -0.1745;
+  $d: $scale / 1px;
+  $track: ($a + ($b * math.pow(math.$e, $c * $d))) * 1em;
+
+  @return $track;
+}
+
+/**
+ *
+ * Variables
+ *
+ */
+
+$colors-primary: (
+  50: #f2f8e8,
+  100: #e0edc5,
+  200: #cbe2a0,
+  300: #b5d67a,
+  400: #a5ce5b,
+  500: #95c53d,
+  600: #85b535,
+  700: #6fa12b,
+  800: #5c8d22,
+  900: #376c0f,
+  error: #ff0000,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    error: white,
+  ),
+);
+$colors-accent: (
+  50: #e6e9f5,
+  100: #bfc7e6,
+  200: #95a3d5,
+  300: #6980c5,
+  400: #4664b9,
+  500: #174bad,
+  600: #0d43a4,
+  700: #003a98,
+  800: #00308d,
+  900: #001f78,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+$colors-warn: (
+  600: #d23759,
+  contrast: (
+    600: white,
+  ),
+);
+$palette-primary: mat-theming.mat-palette($colors-primary, 700);
+$palette-accent: mat-theming.mat-palette($colors-accent, 400);
+$palette-warn: mat-theming.mat-palette($colors-warn, 600);
+$palette: mat-theming.mat-light-theme(
+  (
+    color: (
+      primary: $palette-primary,
+      accent: $palette-accent,
+      warn: $palette-warn,
+    ),
+  )
+);
+$typography: mat-theming.mat-typography-config(
+  $font-family: 'Inter, sans-serif',
+  $display-4: mat-theming.mat-typography-level(96px, 96px, 400, $letter-spacing: calc-typeset-track(96px)),
+  $display-3: mat-theming.mat-typography-level(60px, 66px, 400, $letter-spacing: calc-typeset-track(60px)),
+  $display-2: mat-theming.mat-typography-level(48px, 58px, 500, $letter-spacing: calc-typeset-track(48px)),
+  $display-1: mat-theming.mat-typography-level(34px, 44px, 400, $letter-spacing: calc-typeset-track(34px)),
+  $headline: mat-theming.mat-typography-level(24px, 32px, 600, $letter-spacing: calc-typeset-track(24px)),
+  $title: mat-theming.mat-typography-level(20px, 28px, 600, $letter-spacing: calc-typeset-track(20px)),
+  $subheading-2: mat-theming.mat-typography-level(16px, 24px, 400, $letter-spacing: calc-typeset-track(16px)),
+  $subheading-1: mat-theming.mat-typography-level(14px, 24px, 500, $letter-spacing: calc-typeset-track(14px)),
+  $body-2: mat-theming.mat-typography-level(16px, 24px, 400, $letter-spacing: calc-typeset-track(16px)),
+  $body-1: mat-theming.mat-typography-level(14px, 20px, 400, $letter-spacing: calc-typeset-track(14px)),
+  $caption: mat-theming.mat-typography-level(12px, 20px, 400, $letter-spacing: calc-typeset-track(12px)),
+  $button: mat-theming.mat-typography-level(15px, 16px, 600, $letter-spacing: calc-typeset-track(15px)),
+  $input: mat-theming.mat-typography-level(16px, 1.125, 400, $letter-spacing: calc-typeset-track(16px)),
+);

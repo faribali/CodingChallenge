@@ -1,0 +1,16 @@
+/**
+ *
+ * Modules
+ *
+ */
+
+@use './theme.module' as this;
+
+/**
+ *
+ * Setup
+ *
+ */
+
+@include this.angular-material-theme(this.$palette);
+@include this.angular-material-typography(this.$typography);
