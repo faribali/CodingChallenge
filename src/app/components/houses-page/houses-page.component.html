@@ -1,1 +1,9 @@
-<p>houses-page works!</p>
+<div class="page">
+  <div class="card-container">
+    <div fxLayout="row wrap">
+      <div fxFlex="25%">
+        <app-house-card  *ngFor="let house of houseList" [house]="house" ></app-house-card>
+      </div >
+    </div>
+  </div>
+</div>
