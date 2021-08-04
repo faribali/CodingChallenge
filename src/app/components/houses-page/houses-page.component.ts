@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-houses-page',
@@ -8,13 +9,17 @@ import { IHouse } from '../../models/house';
   styleUrls: ['./houses-page.component.scss'],
 })
 export class HousesPageComponent implements OnInit {
-  constructor(private houseService: HouseService) {}
+  constructor(private houseService: HouseService, private snackBar: MatSnackBar) {}
   houseList: IHouse[];
   ngOnInit(): void {
+    let self = this;
     this.houseService.GetAllHouses().subscribe({
-      next: (houselist) => {
+      next: (houseList) => {
+        this.houseList = houseList;
+      },
+      error: (err) => {
         debugger;
-        this.houseList = houselist;
+        this.snackBar.open(err.message, 'close');
       },
     });
   }
