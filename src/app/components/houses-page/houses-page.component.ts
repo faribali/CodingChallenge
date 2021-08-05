@@ -3,8 +3,6 @@ import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-// @ts-ignore
-import { MatPaginatorIntl } from '@angular/material/paginator';
 import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
 
 @Component({
@@ -15,11 +13,7 @@ import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
 export class HousesPageComponent implements OnInit {
   customPaginatorIntl: customPaginatorIntl;
 
-  constructor(
-    private houseService: HouseService,
-    private snackBar: MatSnackBar,
-    private matPaginatorIntl: MatPaginatorIntl
-  ) {}
+  constructor(private houseService: HouseService, private snackBar: MatSnackBar) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   houseList: IHouse[];
@@ -65,15 +59,9 @@ export class HousesPageComponent implements OnInit {
       this.parts.last.lastIndexOf('page=') + 5,
       this.parts.last.lastIndexOf('pageSize') - 1
     );
-    debugger;
     this.length = +length * this.pageSize;
-
-    //this.customPaginatorIntl = <customPaginatorIntl>this.matPaginatorIntl;
-
-    //this.paginator.nextPage();
   }
   onPaginateChange($event: PageEvent): void {
-    debugger;
     this.pageSize = $event.pageSize;
     this.params = { page: $event.pageIndex, pageSize: $event.pageSize };
     this.getAllHouses();
