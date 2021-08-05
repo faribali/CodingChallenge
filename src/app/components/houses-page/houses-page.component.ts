@@ -19,16 +19,14 @@ export class HousesPageComponent implements OnInit {
   houseList: IHouse[];
   linkHeaders: string = '';
 
-  pageSizeOptions: number;
   pageSize: number = 10;
   length: number;
-  pageIndex: number;
-  parts: any = {};
   params: {};
 
   ngOnInit(): void {
     this.getAllHouses();
   }
+
   getAllHouses(): void {
     this.houseService.getAllHouses(this.params).subscribe({
       next: (res) => {
@@ -42,7 +40,7 @@ export class HousesPageComponent implements OnInit {
     });
   }
   splitLinkHeaders(linkHeaders: string): void {
-    this.parts = linkHeaders.split(',').reduce((acc, link) => {
+    let paginationObject = linkHeaders.split(',').reduce((acc, link) => {
       let match = link.match(/<(.*)>; rel="(\w*)"/);
       let url, rel;
       if (match) {
@@ -55,11 +53,18 @@ export class HousesPageComponent implements OnInit {
       acc[rel] = url;
       return acc;
     }, {});
-    let length = this.parts.last.substring(
-      this.parts.last.lastIndexOf('page=') + 5,
-      this.parts.last.lastIndexOf('pageSize') - 1
-    );
-    this.length = +length * this.pageSize;
+    this.findingLastpageNumber(paginationObject);
+  }
+  findingLastpageNumber(paginationObject: { last?: any }): void {
+    if (paginationObject.last !== undefined) {
+      let length = paginationObject.last.substring(
+        paginationObject.last.lastIndexOf('page=') + 5,
+        paginationObject.last.lastIndexOf('pageSize') - 1
+      );
+      this.length = +length * this.pageSize;
+    } else {
+      this.length = 0;
+    }
   }
   onPaginateChange($event: PageEvent): void {
     this.pageSize = $event.pageSize;
