@@ -10,7 +10,6 @@ import { keyframes } from '@angular/animations';
 export class AppComponent {
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
-    console.log('skjhkdjhkjdhdhd');
   }
 
   title = 'codingChallenge';

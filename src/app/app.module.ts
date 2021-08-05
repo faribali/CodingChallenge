@@ -15,7 +15,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { customPaginatorIntl } from './classes/customPaginatorIntl';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
@@ -39,8 +41,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatListModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [{ provide: MatPaginatorIntl, useClass: customPaginatorIntl }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

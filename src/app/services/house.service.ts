@@ -11,8 +11,9 @@ export class HouseService {
   constructor(private http: HttpClient) {}
 
   apiUrl = configuration.apiUrl;
+  params = {};
 
-  GetAllHouses(): Observable<IHouse[]> {
-    return this.http.get<IHouse[]>(this.apiUrl + '/housessss');
+  getAllHouses(params: {}): Observable<any> {
+    return this.http.get<any>(this.apiUrl + '/houses', { observe: 'response', params: params });
   }
 }

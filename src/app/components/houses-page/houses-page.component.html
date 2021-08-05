@@ -1,9 +1,17 @@
 <div class="page">
+  <mat-paginator  [pageSize]="pageSize"
+                  [pageSizeOptions]="[10,15,20, 50]"
+                  [length]="length"
+                  showFirstLastButtons
+                  (page)="$event;
+                  onPaginateChange($event)"
+  ></mat-paginator>
   <div class="card-container">
     <div fxLayout="row wrap">
       <div fxFlex="25%">
         <app-house-card  *ngFor="let house of houseList" [house]="house" ></app-house-card>
       </div >
     </div>
+
   </div>
 </div>
