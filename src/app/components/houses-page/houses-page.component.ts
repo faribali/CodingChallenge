@@ -18,7 +18,6 @@ export class HousesPageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   houseList: IHouse[];
   linkHeaders: string = '';
-
   pageSize: number = 10;
   length: number;
   params: {};
@@ -26,7 +25,6 @@ export class HousesPageComponent implements OnInit {
   ngOnInit(): void {
     this.getAllHouses();
   }
-
   getAllHouses(): void {
     this.houseService.getAllHouses(this.params).subscribe({
       next: (res) => {

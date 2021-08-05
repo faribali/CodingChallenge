@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +18,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { customPaginatorIntl } from './classes/customPaginatorIntl';
+import { HouseDetailsComponent } from './components/house-details/house-details.component';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, HousesPageComponent, HouseCardComponent],
+  declarations: [AppComponent, HousesPageComponent, HouseCardComponent, HouseDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
