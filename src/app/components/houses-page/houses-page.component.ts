@@ -4,7 +4,6 @@ import { IHouse } from '../../models/house';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-houses-page',
@@ -14,18 +13,20 @@ import { TranslateService } from '@ngx-translate/core';
 export class HousesPageComponent implements OnInit {
   customPaginatorIntl: customPaginatorIntl;
 
-  constructor(private houseService: HouseService, private snackBar: MatSnackBar, private translate: TranslateService) {}
+  constructor(private houseService: HouseService, private snackBar: MatSnackBar) {}
 
   houseList: IHouse[];
   linkHeaders: string = '';
   pageSize: number = 10;
   length: number;
+  showLoadingSpinner: boolean = false;
   params: {};
 
   ngOnInit(): void {
     this.getAllHouses();
   }
   getAllHouses(): void {
+    this.showLoadingSpinner = true;
     this.houseService.getAllHouses(this.params).subscribe({
       next: (res) => {
         this.houseList = res.body;
@@ -34,6 +35,9 @@ export class HousesPageComponent implements OnInit {
       },
       error: (err) => {
         this.snackBar.open(err.message, 'close');
+      },
+      complete: () => {
+        this.showLoadingSpinner = false;
       },
     });
   }
