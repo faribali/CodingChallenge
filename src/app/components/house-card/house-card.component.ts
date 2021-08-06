@@ -13,5 +13,6 @@ export class HouseCardComponent implements OnInit {
   ngOnInit(): void {}
   showDetailsPage(): void {
     this.router.navigateByUrl('/houseDetails', { state: this.house });
+    localStorage.setItem('houseDetails', JSON.stringify(this.house));
   }
 }

@@ -1,4 +1,9 @@
 {
-  "title": "Translation demo",
-  "text": "This is a simple demonstration app for ngx-translate"
+  "title": "Game of Thrones",
+  "text": "translate is working",
+  "device": {
+    "name_label": "Name",
+    "title_label": "Title",
+    "region_label": "Region"
+  }
 }

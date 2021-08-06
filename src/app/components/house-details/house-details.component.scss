@@ -16,6 +16,7 @@
 .container {
   display: grid;
   grid-template: calc(100vh - 128px) / auto;
+  padding-left: 25px;
 }
 
 .content {

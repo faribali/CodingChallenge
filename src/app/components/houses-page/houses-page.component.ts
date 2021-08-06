@@ -4,6 +4,7 @@ import { IHouse } from '../../models/house';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-houses-page',
@@ -13,7 +14,7 @@ import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
 export class HousesPageComponent implements OnInit {
   customPaginatorIntl: customPaginatorIntl;
 
-  constructor(private houseService: HouseService, private snackBar: MatSnackBar) {}
+  constructor(private houseService: HouseService, private snackBar: MatSnackBar, private translate: TranslateService) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   houseList: IHouse[];
