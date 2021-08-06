@@ -4,7 +4,8 @@
      "device": {
        "name_label": "Name",
        "title_label": "Title",
-       "coatOfArms_label": "Region",
+       "region_label": "Region",
+       "coatOfArms_label": "Coat of arms",
        "words_label": "Words",
        "seats_label": "Seats",
        "currentLord_label": "Current lord",

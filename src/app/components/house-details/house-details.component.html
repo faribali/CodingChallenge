@@ -15,7 +15,7 @@
         <p matLine *ngFor="let title of house.titles" ><b>* </b> {{title}}</p>
       </mat-list-item >
       <mat-list-item *ngIf="house.seats[0] !== '' && house.seats.length >0 ">
-        <h3 matLine>Seats</h3>
+        <h3 matLine>{{"device.seats_label" | translate}}</h3>
         <p matLine *ngFor="let seat of house.seats" ><b>* </b> {{seat}}</p>
       </mat-list-item >
       <mat-list-item *ngIf="house.region !== ''">
@@ -23,27 +23,27 @@
         <p matLine class="demo-2"> {{house.region}} </p>
       </mat-list-item>
       <mat-list-item *ngIf="house.coatOfArms !== ''">
-        <h4 matLine>Coat description:</h4>
+        <h4 matLine>{{"device.coatOfArms_label" | translate}}</h4>
         <p matLine class="demo-2"> {{house.coatOfArms}} </p>
       </mat-list-item>
       <mat-list-item *ngIf="house.words !== ''">
-        <h4 matLine>Words of this house:</h4>
+        <h4 matLine>{{"device.words" | translate}}</h4>
         <p matLine class="demo-2">{{house.words}}</p>
       </mat-list-item>
       <mat-list-item *ngIf="house.founded !== ''">
-        <h4 matLine>Founded:</h4>
+        <h4 matLine>{{"device.founded" | translate}}</h4>
         <p matLine class="demo-2">{{house.founded}}</p>
       </mat-list-item>
       <mat-list-item *ngIf="house.diedOut !== ''">
-        <h4 matLine>Died out:</h4>
+        <h4 matLine>{{"device.diedOut" | translate}}</h4>
         <p matLine class="demo-2">{{house.diedOut}}</p>
       </mat-list-item>
       <mat-list-item *ngIf="house.overlord !== ''">
-        <h4 matLine>Overlord (house):</h4>
+        <h4 matLine>{{"device.founded" | translate}}</h4>
         <p matLine class="demo-2">{{overLordName}}</p>
       </mat-list-item>
       <mat-list-item *ngIf="swornListIsNOTEmpty()">
-        <h3 matLine>Sworn member's list</h3>
+        <h3 matLine>{{"device.swornMembers_label" | translate}}</h3>
         <p matLine *ngFor="let member of swornMembersName" ><b>* </b> {{member}}</p>
       </mat-list-item >
       <!--<mat-list-item *ngIf="house.currentLord !== ''">
@@ -71,28 +71,18 @@
           Founder
         </a>
       </mat-list>
-   <!--   <mat-selection-list  *ngIf="house.founder !== ''">
-        <mat-list-option>
-          <a
-            matTooltip="click to show Information about founder"
-            mat-list-item
-            (click)="getCharacterDetails(house.founder)">
-            Founder
-          </a>
-        </mat-list-option>
-      </mat-selection-list>-->
       <mat-list *ngIf="house.heir !== ''">
         <a
           mat-list-item
           (click)="getCharacterDetails(house.heir)">
-          House's heir
+          {{'device.Heir_label' | translate}}
         </a>
       </mat-list>
       <mat-list *ngIf="house.currentLord  !== ''">
         <a
           mat-list-item
           (click)="getCharacterDetails(house.currentLord )">
-          Current lord
+          {{'device.currentLord_label' | translate}}
         </a>
       </mat-list>
     </mat-card-actions>
