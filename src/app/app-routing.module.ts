@@ -4,8 +4,9 @@ import { HousesPageComponent } from './components/houses-page/houses-page.compon
 import { HouseDetailsComponent } from './components/house-details/house-details.component';
 
 const routes: Routes = [
-  { path: '', component: HousesPageComponent, data: { houseInfo: {} } },
+  { path: '', component: HousesPageComponent },
   { path: 'houseDetails', component: HouseDetailsComponent },
+  { path: '**', component: HousesPageComponent },
 ];
 
 @NgModule({

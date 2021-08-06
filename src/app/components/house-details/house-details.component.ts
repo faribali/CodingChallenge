@@ -1,5 +1,6 @@
 import { Component, Directive, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
@@ -24,13 +25,24 @@ export class HouseDetailsComponent implements OnInit {
     private houseService: HouseService,
     private location: Location,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
-  house: any;
+  house: any; // ???  is not possible to get IHOUSE as datatype
 
   ngOnInit(): void {
     this.house = this.location.getState();
+
+    if (!this.house.url) {
+      //if page is refreshed (Not preferred way )  ??? how to check if the page is refreshed
+      if (localStorage.getItem('houseDetails')) {
+        this.house = JSON.parse(<string>localStorage.getItem('houseDetails'));
+      } else {
+        this.router.navigateByUrl('/');
+      }
+    }
+
     if (this.overlordExists()) {
       this.getOverLord(this.house.overlord);
     }
@@ -38,6 +50,7 @@ export class HouseDetailsComponent implements OnInit {
       this.getSwornMembersName();
     }
   }
+
   swornListIsNOTEmpty(): boolean {
     return this.house.swornMembers[0] !== '' && this.house.swornMembers.length !== 0 ? true : false;
   }
@@ -55,6 +68,7 @@ export class HouseDetailsComponent implements OnInit {
         error: (err) => {
           this.snackBar.open(err.message, 'close');
         },
+        complete: () => {},
       });
     }
   }
@@ -66,6 +80,9 @@ export class HouseDetailsComponent implements OnInit {
       },
       error: (err) => {
         this.snackBar.open(err.message, 'close');
+      },
+      complete: () => {
+        localStorage.setItem('OverLord', this.overLordName); //send a request or read from Localstorage???
       },
     });
   }

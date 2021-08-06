@@ -16,7 +16,6 @@ export class HousesPageComponent implements OnInit {
 
   constructor(private houseService: HouseService, private snackBar: MatSnackBar, private translate: TranslateService) {}
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   houseList: IHouse[];
   linkHeaders: string = '';
   pageSize: number = 10;
@@ -66,6 +65,7 @@ export class HousesPageComponent implements OnInit {
     }
   }
   onPaginateChange($event: PageEvent): void {
+    debugger;
     this.pageSize = $event.pageSize;
     this.params = { page: $event.pageIndex, pageSize: $event.pageSize };
     this.getAllHouses();

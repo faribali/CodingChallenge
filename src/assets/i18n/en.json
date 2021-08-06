@@ -9,8 +9,8 @@
        "seats_label": "Seats",
        "currentLord_label": "Current lord",
        "Heir_label": "Heir of house",
-       "founded_label": "Region",
-       "diedOut_label": "Region",
-       "swornMembers_label": "Region"
+       "founded_label": "founded",
+       "diedOut_label": "diedOut",
+       "swornMembers_label": "swornMembers"
      }
 }

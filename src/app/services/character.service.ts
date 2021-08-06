@@ -10,9 +10,6 @@ import configuration from 'src/configuration.json';
 export class CharacterService {
   constructor(private http: HttpClient) {}
 
-  apiUrl = configuration.apiUrl;
-  params = {};
-
   getCharacter(url: string): Observable<ICharacter> {
     return this.http.get<any>(url);
   }
