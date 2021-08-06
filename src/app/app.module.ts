@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { customPaginatorIntl } from './classes/customPaginatorIntl';
 import { HouseDetailsComponent } from './components/house-details/house-details.component';
 import { CharacterDialogComponent } from './components/dialogs/character-dialog/character-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatSnackBarModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: customPaginatorIntl }],
   bootstrap: [AppComponent],
