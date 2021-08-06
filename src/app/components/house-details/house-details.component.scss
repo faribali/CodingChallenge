@@ -1,0 +1,40 @@
+
+
+@use 'sass:map';
+@use 'src/assets/styles/foundation/theme.module' as theme;
+@use 'src/assets/styles/foundation/layout.module' as layout;
+@use 'src/assets/styles/components/drawer-content.module' as drawer-content;
+
+
+
+/**
+ *
+ * Rules
+ *
+ */
+
+.container {
+  display: grid;
+  grid-template: calc(100vh - 128px) / auto;
+}
+
+.content {
+
+}
+
+mat-list-item {
+  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'hint-text');
+  span{
+    font-weight: 500;
+  }
+}
+
+mat-hint {
+  color: theme.mat-color(map.get(theme.$palette, 'warn'));
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}

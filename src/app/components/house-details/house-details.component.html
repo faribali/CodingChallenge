@@ -1,1 +1,59 @@
-<p>house-details works!</p>
+<mat-toolbar color="warn">
+  <header mat-warn class="docs-primary-header">
+    <p>{{house.name}}</p>
+  </header>
+</mat-toolbar>
+<div class="container">
+  <div class="content">
+    <mat-list>
+      <mat-list-item *ngIf="house.name !== ''">
+        <h3 matLine>Name</h3>
+        <p matLine class="demo-2"> {{house.name}} </p>
+      </mat-list-item >
+      <mat-list-item *ngIf="house.region !== ''">
+        <h4 matLine>Region</h4>
+        <p matLine class="demo-2"> {{house.region}} </p>
+      </mat-list-item>
+      <mat-list-item *ngIf="house.coatOfArms !== ''">
+        <h4 matLine>Coat description:</h4>
+        <p matLine class="demo-2"> {{house.coatOfArms}} </p>
+
+      </mat-list-item>
+      <mat-list-item  *ngIf="house.founder !== ''">
+        <h4 matLine>Founder</h4>
+        <p matLine class="demo-2"> {{house.founder}}
+          <button  color="primary">Show details about founder</button>
+        </p>
+
+      </mat-list-item >
+      <mat-list-item *ngIf="house.words !== ''">
+        <h4 matLine>Words of this house:</h4>
+        <p matLine class="demo-2">{{house.words}}</p>
+      </mat-list-item>
+      <mat-list-item *ngIf="house.currentLord !== ''">
+        <h4 matLine>current Lord:</h4>
+        <p matLine class="demo-2">{{house.currentLord}}</p>
+      </mat-list-item>
+      <mat-list-item *ngIf="house.heir !== ''">
+        <h4 matLine>House's heir:</h4>
+        <p matLine class="demo-2">{{house.heir}}</p>
+      </mat-list-item>
+      <mat-list-item *ngIf="house.founded !== ''">
+        <h4 matLine>Founded:</h4>
+        <p matLine class="demo-2">{{house.founded}}</p>
+      </mat-list-item>
+
+      <mat-list-item *ngIf="house.diedOut !== ''">
+        <h4 matLine>Died out:</h4>
+        <p matLine class="demo-2">{{house.diedOut}}</p>
+      </mat-list-item>
+
+    </mat-list>
+  </div>
+</div>
+
+
+
+
+
+

@@ -17,14 +17,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 import { customPaginatorIntl } from './classes/customPaginatorIntl';
 import { HouseDetailsComponent } from './components/house-details/house-details.component';
+import { CharacterDialogComponent } from './components/dialogs/character-dialog/character-dialog.component';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, HousesPageComponent, HouseCardComponent, HouseDetailsComponent],
+  declarations: [
+    AppComponent,
+    HousesPageComponent,
+    HouseCardComponent,
+    HouseDetailsComponent,
+    CharacterDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatButtonModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    MatDialogModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: customPaginatorIntl }],
   bootstrap: [AppComponent],
