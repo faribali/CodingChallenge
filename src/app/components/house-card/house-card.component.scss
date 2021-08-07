@@ -56,17 +56,20 @@ mat-spinner {
   margin-left: auto;
 }
 
-mat-card {
-  min-width: $card-min-width;
+mat-card{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 200px;
+}
+
+mat-card-content {
+  flex: 1;
 }
 
 hr {
   border-top: $divider-size solid theme.mat-color(map.get(theme.$palette, 'foreground'), 'dividers');
   margin: $divider-adjust;
-}
-
-mat-card-content {
-  margin-bottom: 0;
 }
 
 .example-button-row .mat-button-base {
