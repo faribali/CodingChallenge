@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IHouse } from '../models/house';
-import { PaginatedList } from '../models/paginated-list';
+import { IPaginatedList } from '../models/paginated-list';
 
 const WEB_API_URL = environment.apiUrl;
 
@@ -25,7 +25,7 @@ export class DataService<T> {
     return action.pipe(retry(1), catchError(this.handleError));
   }
 
-  getList$(resourceName: string, params: any): Observable<PaginatedList<IHouse>> {
+  getList$(resourceName: string, params: any): Observable<IPaginatedList<IHouse>> {
     const url = `${WEB_API_URL}/${resourceName}`;
     const action = this.http.get<IHouse[]>(url, { observe: 'response', params: params });
     return action.pipe(
@@ -35,7 +35,7 @@ export class DataService<T> {
         return {
           items: res.body as IHouse[],
           lastPage: this.splitLinkHeaders(res.headers.get('link')),
-        } as PaginatedList<IHouse>;
+        } as IPaginatedList<IHouse>;
       })
     );
   }

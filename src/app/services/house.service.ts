@@ -6,7 +6,7 @@ import configuration from 'src/configuration.json';
 import { IHouse } from '../models/house';
 import { DataService } from './data.service';
 import { tap } from 'rxjs/operators';
-import { PaginatedList } from '../models/paginated-list';
+import { IPaginatedList } from '../models/paginated-list';
 
 const RESOURCE_NAME = 'houses';
 
@@ -21,7 +21,7 @@ export class HouseService {
 
   getAllHouses(params: {}): Observable<any> {
     return this.dataService.getList$(RESOURCE_NAME, params).pipe(
-      tap((list: PaginatedList<IHouse>) => {
+      tap((list: IPaginatedList<IHouse>) => {
         list?.items.forEach((house) => this.assignId(house));
       })
     );

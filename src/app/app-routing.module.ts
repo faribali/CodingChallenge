@@ -5,7 +5,7 @@ import { HouseDetailsComponent } from './components/house-details/house-details.
 
 const routes: Routes = [
   { path: '', component: HousesPageComponent },
-  { path: 'houseDetails', component: HouseDetailsComponent },
+  { path: 'houseDetails/:id', component: HouseDetailsComponent },
   { path: '**', component: HousesPageComponent },
 ];
 

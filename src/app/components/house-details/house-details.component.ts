@@ -1,6 +1,5 @@
 import { Component, Directive, Input, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
@@ -25,34 +24,43 @@ export class HouseDetailsComponent implements OnInit {
     private houseService: HouseService,
     private location: Location,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar,
-    private router: Router
+    private snackBar: MatSnackBar
   ) {}
 
-  house: any; // ???  is not possible to get IHOUSE as datatype
+  house: IHouse;
+  id: string;
 
   ngOnInit(): void {
-    this.house = this.location.getState();
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      // to list page
+    } else {
+      this.id = id;
+    }
+    this.getHouseWithId(this.id);
+  }
 
-    if (!this.house.url) {
-      //if page is refreshed (Not preferred way )  ??? how to check if the page is refreshed
-      if (localStorage.getItem('houseDetails')) {
-        this.house = JSON.parse(<string>localStorage.getItem('houseDetails'));
-      } else {
-        this.router.navigateByUrl('/');
-      }
-    }
-
-    if (this.overlordExists()) {
-      this.getOverLord(this.house.overlord);
-    }
-    if (this.swornListIsNOTEmpty()) {
-      this.getSwornMembersName();
-    }
+  getHouseWithId(houseId: string): void {
+    this.houseService.getHouseWithId(houseId).subscribe({
+      next: (res) => {
+        this.house = res;
+        if (this.overlordExists()) {
+          this.getOverLord(this.house.overlord);
+        }
+        if (this.swornListIsNOTEmpty()) {
+          this.getSwornMembersName();
+        }
+      },
+      error: (err) => {
+        debugger;
+        this.snackBar.open(err.message, 'close');
+      },
+      complete: () => {},
+    });
   }
 
   swornListIsNOTEmpty(): boolean {
-    return this.house.swornMembers[0] !== '' && this.house.swornMembers.length !== 0 ? true : false;
+    return this.house.swornMembers.length !== 0 ? true : false;
   }
 
   overlordExists(): boolean {
@@ -81,9 +89,7 @@ export class HouseDetailsComponent implements OnInit {
       error: (err) => {
         this.snackBar.open(err.message, 'close');
       },
-      complete: () => {
-        localStorage.setItem('OverLord', this.overLordName); //send a request or read from Localstorage???
-      },
+      complete: () => {},
     });
   }
 

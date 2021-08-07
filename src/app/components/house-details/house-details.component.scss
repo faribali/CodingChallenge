@@ -12,6 +12,7 @@
  * Rules
  *
  */
+$colors-warn: warn;
 
 .container {
   display: grid;
@@ -28,7 +29,24 @@ mat-list-item {
   span{
     font-weight: 500;
   }
+
 }
+.mat-list-button{
+  :hover{
+    box-shadow: 1px 1px 1px red;
+  }
+}
+button{
+   text-decoration: underline;
+}
+mat-card-actions {
+  text-decoration: underline;
+  mat-list-text:hover {
+    background-color: #5c8d22;
+    cursor: crosshair;
+  }
+}
+
 
 mat-hint {
   color: theme.mat-color(map.get(theme.$palette, 'warn'));
