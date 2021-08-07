@@ -1,7 +1,7 @@
 {
     "title": "Game of Thrones",
     "text": "translate is working",
-     "device": {
+     "house": {
        "name_label": "Name",
        "title_label": "Title",
        "region_label": "Region",
@@ -12,6 +12,7 @@
        "Heir_label": "Heir of house",
        "founded_label": "founded",
        "diedOut_label": "diedOut",
-       "swornMembers_label": "swornMembers"
+       "swornMembers_label": "sworn Members",
+       "overLord_label": "Overlord"
      }
 }
