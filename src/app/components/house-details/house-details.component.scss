@@ -1,14 +1,23 @@
 
 @use "src/assets/styles/components/general.module" as general;
 
+
 $colors-warn: warn;
 
+
+@use "src/assets/styles/components/spinner.module" as this;
+
+.spinner-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 .container {
   display: grid;
   grid-template: calc(100vh - 128px) / auto;
   padding-left: 25px;
 }
-
 button{
    text-decoration: underline;
    color: general.$color;

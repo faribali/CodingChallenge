@@ -1,5 +1,5 @@
-import { Component, Directive, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
@@ -45,7 +45,7 @@ export class HouseDetailsComponent implements OnInit {
       next: (res) => {
         this.house = res;
         if (this.overlordExists()) {
-          this.getOverLord(this.house.overlord);
+          this.getOverLordName(this.house.overlord);
         }
         if (this.swornListIsNOTEmpty()) {
           this.getSwornMembersName();
@@ -59,14 +59,23 @@ export class HouseDetailsComponent implements OnInit {
     });
   }
 
-  swornListIsNOTEmpty(): boolean {
-    return this.house.swornMembers.length !== 0 ? true : false;
-  }
-
   overlordExists(): boolean {
-    return this.house.overlord !== '' ? true : false;
+    return this.house.overlord !== '';
+  }
+  getOverLordName(url: string): void {
+    this.houseService.getSpecificHouse(url).subscribe({
+      next: (res: IHouse) => {
+        this.overLordName = res.name;
+      },
+      error: (err) => {
+        this.snackBar.open(err.message, 'close');
+      },
+    });
   }
 
+  swornListIsNOTEmpty(): boolean {
+    return this.house.swornMembers.length !== 0;
+  }
   getSwornMembersName(): void {
     for (let characterUrl of this.house.swornMembers) {
       this.characterService.getCharacter(characterUrl).subscribe({
@@ -76,21 +85,8 @@ export class HouseDetailsComponent implements OnInit {
         error: (err) => {
           this.snackBar.open(err.message, 'close');
         },
-        complete: () => {},
       });
     }
-  }
-
-  getOverLord(url: string): void {
-    this.houseService.getSpecificHouse(url).subscribe({
-      next: (res: IHouse) => {
-        this.overLordName = res.name;
-      },
-      error: (err) => {
-        this.snackBar.open(err.message, 'close');
-      },
-      complete: () => {},
-    });
   }
 
   getCharacterDetails(url: string): void {

@@ -5,14 +5,14 @@
        "name_label": "Name",
        "title_label": "Title",
        "region_label": "Region",
-       "coatOfArms_label": "Coat of arms",
+       "coatOfArms_label": "coat-Of-Arms",
        "words_label": "Words",
        "seats_label": "Seats",
-       "currentLord_label": "Current lord",
-       "Heir_label": "Heir of house",
-       "founded_label": "founded",
+       "currentLord_label": "Currentlord",
+       "Heir_label": "Heir",
+       "founded_label": "Founded",
        "diedOut_label": "diedOut",
-       "swornMembers_label": "sworn Members",
+       "swornMembers_label": "Sworn-Members",
        "overLord_label": "Overlord"
      }
 }

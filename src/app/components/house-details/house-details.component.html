@@ -1,6 +1,8 @@
 
-  <mat-spinner *ngIf="!house" color="warn"></mat-spinner>
 
+<div class="spinner-content" *ngIf="!house">
+    <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>
 <div *ngIf="house">
   <mat-toolbar color="warn">
     <header class="docs-primary-header">
@@ -44,11 +46,17 @@
         </mat-list-item>
         <mat-list-item *ngIf="house.overlord !== ''">
           <h4 matLine>{{"house.overLord_label" | translate}}</h4>
-          <p matLine class="demo-2">{{overLordName}}</p>
+          <p *ngIf="overLordName!==''" matLine class="demo-2">{{overLordName}}</p>
+          <mat-spinner *ngIf="overLordName ===''" matLine diameter="40" color="warn"></mat-spinner>
         </mat-list-item>
-        <mat-list-item *ngIf="swornListIsNOTEmpty()">
+        <mat-list-item *ngIf="house.swornMembers.length !==0">
           <h3 matLine>{{"house.swornMembers_label" | translate}}</h3>
-          <p matLine *ngFor="let member of swornMembersName" ><b>* </b> {{member}}</p>
+          <ng-container  matLine *ngIf="swornMembersName.length !== 0 ">
+            <p  matLine *ngFor="let member of swornMembersName" ><b>* </b> {{member}}</p>
+          </ng-container>
+          <ng-container matLine *ngIf="swornMembersName.length === 0">
+            <mat-spinner diameter="40" color="warn"></mat-spinner>
+          </ng-container>
         </mat-list-item >
          <mat-list-item *ngIf="house.founder !== ''">
             <h4 matLine></h4>
@@ -75,7 +83,6 @@
   </div>
 
 </div>
-
 
 
 

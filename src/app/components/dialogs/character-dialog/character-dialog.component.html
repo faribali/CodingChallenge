@@ -1,7 +1,6 @@
 
 <div class="modal">
 
-
 <div class="modal-header" > <h1>{{data.name}}</h1></div>
 
 <div class="modal-content">
@@ -24,15 +23,9 @@
     <mat-list-item role="listitem" *ngIf="data.tvSeries.length !== 0  &&  data.tvSeries[0] !==''">  <h5 matLine>tv series</h5><p matLine *ngFor="let tvserie of data.tvSeries" ><b>* </b> {{tvserie}}</p></mat-list-item>
     <mat-list-item role="listitem" *ngIf="data.books.length !== 0 ">  <h5 matLine>Books in it...</h5><p matLine *ngFor="let book of data.books" ><b>* </b> {{book}}</p></mat-list-item>
 
-
-
-
   </mat-list>
 
-
-
 </div>
-
 
 <div class="modal-footer" >
 

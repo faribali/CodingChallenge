@@ -1,19 +1,18 @@
 <div class="page">
 
-
-  <mat-spinner *ngIf="showLoadingSpinner" color="warn"></mat-spinner>
+  <div class="spinner-content" *ngIf="showLoadingSpinner">
+  <mat-spinner color="warn"></mat-spinner>
+  </div>
 
   <div class="card-container" *ngIf="!showLoadingSpinner" >
-    <div fxLayout="row wrap">
-      <div fxFlex="25%">
+    <div>
         <app-house-card  *ngFor="let house of houseList" [house]="house" ></app-house-card>
-      </div >
     </div>
-
-
   </div>
+
+
   <mat-paginator [pageSize]="pageSize"
-                 [pageSizeOptions]="[10,15,20, 50]"
+                 [pageSizeOptions]="[10,15,20,50]"
                  [length]="length"
                  showFirstLastButtons
                  (page)="$event;
