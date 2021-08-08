@@ -4,7 +4,7 @@
 @use './src/assets/styles/components/drawer-content.module' as drawer-content;
 
 @debug map.get(theme.$palette, 'foreground');
-@debug map.get(theme.$palette, 'primary');
+@debug map.get(theme.$palette, 'background-light');
 
 
 $card-min-width: 300px;
@@ -21,6 +21,7 @@ p {
 hr {
   border: 0;
   height: 0;
+
 }
 
 a {
@@ -38,18 +39,12 @@ a {
  *
  */
 
-p {
-  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'secondary-text');
-}
+
 .card{
   //flex: 1 1 auto;
   margin: 10px 20px;
   flex: 1 1 auto;
   float: left;
-}
-mat-icon {
-  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'icon');
-  margin-right: map.get(drawer-content.$container-spacing, 'small');
 }
 
 mat-spinner {
@@ -65,7 +60,6 @@ mat-card{
 
 mat-card-content {
   flex: 1;
-
 }
 
 hr {
@@ -86,10 +80,6 @@ mat-list {
 }
 .bt-colapse {
   margin-left: auto;
-}
-
-.disable {
-  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'disabled');
 }
 
 .pointer {

@@ -1,11 +1,6 @@
+@use 'sass:map';
+@use './src/assets/styles/foundation/theme.module' as theme;
 
-@use "src/assets/styles/components/general.module" as general;
-
-
-$colors-warn: warn;
-
-
-@use "src/assets/styles/components/spinner.module" as this;
 
 .spinner-content{
   display: flex;
@@ -17,17 +12,19 @@ $colors-warn: warn;
   display: grid;
   grid-template: calc(100vh - 128px) / auto;
   padding-left: 25px;
+
 }
 button{
    text-decoration: underline;
-   color: general.$color;
+   color:  theme.mat-color(theme.$colors-font, 900 );
 }
 .mat-toolbar{
-  color: general.$header-font-color;
-  background-color: general.$second-header-background-color;
+  color:  theme.mat-color(theme.$colors-font, 900 );
+  background-color: theme.mat-color(theme.$colors-primary, 200 );
+
   a{
     text-decoration: none;
-    color: general.$header-font-color;;
+    color:  theme.mat-color(theme.$colors-font, 900 );
   }
 }
 

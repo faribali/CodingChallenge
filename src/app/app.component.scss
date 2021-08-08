@@ -1,15 +1,15 @@
-@use "src/assets/styles/components/general.module";
+@use "../assets/styles/foundation/theme.module" as theme;
 
 .mat-toolbar{
-  color: general.$header-font-color;
-  background-color: general.$header-background-color;
+  color:  theme.mat-color(theme.$colors-font, 800 );
+  background-color: theme.mat-color(theme.$colors-primary, 700 );
 }
 
 .app-header {
   height: 70px;
-  background-color: general.$header-background-color;
-
+  background-color: theme.mat-color(theme.$colors-primary, 700 );
 }
+
 .app-content {
   top: 150px;
   overflow-y: auto;

@@ -38,15 +38,6 @@
         }
       }
 
-      &.active {
-        background: color.change(theme.mat-color(map.get(theme.$palette, 'primary')), $alpha: 0.12);
-        color: theme.mat-color(map.get(theme.$palette, 'primary'));
-
-        .mat-list-icon {
-          color: inherit;
-        }
-      }
-
       .mat-list-item-content {
         padding: 0 this.$list-item-spacing;
       }
@@ -56,13 +47,6 @@
           font-weight: inherit;
         }
       }
-
-      .mat-list-icon {
-        color: map.get(map.get(theme.$palette, 'foreground'), 'icon');
-        padding: 0;
-      }
-
-      @include theme.mat-typography-level-to-styles(theme.$typography, 'subheading-1');
     }
   }
 }
