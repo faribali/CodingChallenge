@@ -86,6 +86,12 @@ mat-list {
   cursor: pointer;
 }
 
+.mat-card-actions{
+  .mat-button{
+    color: theme.mat-color(theme.$colors-font, 900 );
+  }
+}
+
 .feature {
   margin-bottom: $feature-margin;
 }

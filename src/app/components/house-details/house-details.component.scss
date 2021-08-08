@@ -8,10 +8,20 @@
   justify-content: center;
   height: 100vh;
 }
-.container {
+.container{
+   display: flex;
+  flex-direction: column;
+}
+.header{
+  height: 70px;
+
+}
+.content {
   display: grid;
   grid-template: calc(100vh - 128px) / auto;
   padding-left: 25px;
+  height: 100%;
+  overflow: auto;
 
 }
 button{

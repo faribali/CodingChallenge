@@ -105,12 +105,14 @@ $colors-warn: (
 $palette-primary: mat-theming.mat-palette($colors-primary, 700);
 $palette-accent: mat-theming.mat-palette($colors-accent, 400);
 $palette-warn: mat-theming.mat-palette($colors-warn, 600);
+$palette-fontColor: mat-theming.mat-palette($colors-font, 700);
 $palette: mat-theming.mat-light-theme(
   (
     color: (
       primary: $palette-primary,
       accent: $palette-accent,
       warn: $palette-warn,
+      font: $palette-fontColor
     ),
   )
 );
