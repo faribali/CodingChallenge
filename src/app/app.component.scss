@@ -1,1 +1,23 @@
+@use "src/assets/styles/components/general.module";
 
+.mat-toolbar{
+  color: general.$header-font-color;
+  background-color: general.$header-background-color;
+}
+
+.app-header {
+  height: 70px;
+  background-color: general.$header-background-color;
+
+}
+.app-content {
+  top: 150px;
+  overflow-y: auto;
+  height: 100%;
+
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+
+}

@@ -7,8 +7,11 @@
 @use 'sass:map';
 @use 'sass:color';
 
-$color: white;
-$background-color: #c67171;
+$color: #c67171 ;
+$background-color:  #65909A;
+$second-background-color : #BED4D9;
 
 $header-font-color: $color;
 $header-background-color: $background-color;
+$second-header-background-color : $second-background-color;
+

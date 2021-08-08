@@ -3,8 +3,8 @@
 
 <div *ngIf="house">
   <mat-toolbar color="warn">
-    <header mat-warn class="docs-primary-header">
-      <p>{{house.name}}</p>
+    <header class="docs-primary-header">
+      <a routerLink="/"> Houses </a> >>  <span> {{house.name}}</span>
     </header>
   </mat-toolbar>
   <div class="container">

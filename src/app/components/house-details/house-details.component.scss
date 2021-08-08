@@ -1,17 +1,6 @@
 
+@use "src/assets/styles/components/general.module" as general;
 
-@use 'sass:map';
-@use 'src/assets/styles/foundation/theme.module' as theme;
-@use 'src/assets/styles/foundation/layout.module' as layout;
-@use 'src/assets/styles/components/drawer-content.module' as drawer-content;
-
-
-
-/**
- *
- * Rules
- *
- */
 $colors-warn: warn;
 
 .container {
@@ -20,43 +9,19 @@ $colors-warn: warn;
   padding-left: 25px;
 }
 
-.content {
-
-}
-
-mat-list-item {
-  color: theme.mat-color(map.get(theme.$palette, 'foreground'), 'hint-text');
-  span{
-    font-weight: 500;
-  }
-
-}
-.mat-list-button{
-  :hover{
-    box-shadow: 1px 1px 1px red;
-  }
-}
 button{
    text-decoration: underline;
+   color: general.$color;
 }
-mat-card-actions {
-  text-decoration: underline;
-  mat-list-text:hover {
-    background-color: #5c8d22;
-    cursor: crosshair;
+.mat-toolbar{
+  color: general.$header-font-color;
+  background-color: general.$second-header-background-color;
+  a{
+    text-decoration: none;
+    color: general.$header-font-color;;
   }
 }
 
-
-mat-hint {
-  color: theme.mat-color(map.get(theme.$palette, 'warn'));
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
 
 
 
