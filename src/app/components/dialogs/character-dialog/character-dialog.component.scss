@@ -1,0 +1,30 @@
+@use "src/assets/styles/components/general.module";
+
+.modal-header {
+  height: 100px;
+  background-color: general.$header-background-color;
+  padding-left: 10px;
+  padding-top: 20px;
+  color: white;
+}
+.modal-footer {
+  height: 100px;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+.modal-content {
+  bottom: 100px;
+  top: 150px;
+  overflow-y: auto;
+  height: 100%;
+
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 570px;
+  width: 320px;
+}
+
+
+

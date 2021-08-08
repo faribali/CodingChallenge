@@ -41,6 +41,7 @@ export class HousesPageComponent implements OnInit {
       },
     });
   }
+
   onPaginateChange($event: PageEvent): void {
     this.pageSize = $event.pageSize;
     this.params = { page: $event.pageIndex + 1, pageSize: $event.pageSize };

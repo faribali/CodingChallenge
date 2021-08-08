@@ -1,0 +1,14 @@
+/**
+ *
+ * Variables
+ *
+ */
+
+@use 'sass:map';
+@use 'sass:color';
+
+$color: white;
+$background-color: #c67171;
+
+$header-font-color: $color;
+$header-background-color: $background-color;
