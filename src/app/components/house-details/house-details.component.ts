@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 import { HouseService } from '../../services/house.service';
@@ -28,8 +28,6 @@ export class HouseDetailsComponent implements OnInit {
     private router: Router
   ) {}
 
-  @Input() pageIn: number;
-  @Output() pageSize: EventEmitter<number> = new EventEmitter();
   house: IHouse;
   id: string;
 
@@ -41,8 +39,6 @@ export class HouseDetailsComponent implements OnInit {
       this.id = id;
     }
     this.getHouseWithId(this.id);
-
-    this.pageSize.emit(this.pageIn);
   }
 
   getHouseWithId(houseId: string): void {
