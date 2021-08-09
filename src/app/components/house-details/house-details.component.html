@@ -6,7 +6,7 @@
 <div *ngIf="house" class="container">
   <mat-toolbar>
     <header >
-      <a routerLink="/"> Houses </a> >>  <span> {{house.name}}</span>
+      <a routerLink="/"> Houses </a> > <span> {{house.name}}</span>
     </header>
   </mat-toolbar>
   <div class="content">
@@ -47,7 +47,7 @@
         <mat-list-item *ngIf="house.overlord !== ''">
           <h4 matLine>{{"house.overLord_label" | translate}}</h4>
           <p *ngIf="overLordName!==''" matLine >{{overLordName}}</p>
-          <mat-spinner *ngIf="overLordName ===''" matLine diameter="40" color="warn"></mat-spinner>
+          <mat-spinner  *ngIf="overLordName ===''" matLine diameter="40" ></mat-spinner>
         </mat-list-item>
         <mat-list-item *ngIf="house.swornMembers.length !==0">
           <h3 matLine>{{"house.swornMembers_label" | translate}}</h3>
@@ -55,7 +55,7 @@
             <p  matLine *ngFor="let member of swornMembersName" ><b>* </b> {{member}}</p>
           </ng-container>
           <ng-container matLine *ngIf="swornMembersName.length === 0">
-            <mat-spinner diameter="40" ></mat-spinner>
+            <mat-spinner diameter="40"></mat-spinner>
           </ng-container>
         </mat-list-item >
          <mat-list-item *ngIf="house.founder !== ''">

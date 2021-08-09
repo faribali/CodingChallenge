@@ -52,7 +52,6 @@ export class HouseDetailsComponent implements OnInit {
         }
       },
       error: (err) => {
-        debugger;
         this.snackBar.open(err.message, 'close');
       },
       complete: () => {},

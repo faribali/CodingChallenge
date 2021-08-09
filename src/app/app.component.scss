@@ -1,7 +1,7 @@
 @use "../assets/styles/foundation/theme.module" as theme;
 
 .mat-toolbar{
-  color:  theme.mat-color(theme.$colors-font, 800 );
+  color:  theme.mat-color(theme.$colors-font, 100 );
   background-color: theme.mat-color(theme.$colors-primary, 700 );
 }
 
