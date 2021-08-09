@@ -23,7 +23,24 @@ export class HousesPageComponent implements OnInit {
   ) {
     this.router.events.subscribe((event: NavigationEvent) => {
       if (event instanceof NavigationStart) {
-        this.SubscribeToRouterEvents();
+        if (event.url) {
+          if (event.url.includes('page=') && event.url.includes('pageSize=')) {
+            this.pageIndex =
+              Number(event.url.substring(event.url.lastIndexOf('page=') + 5, event.url.lastIndexOf('&'))) - 1;
+            this.pageSize = Number(event.url.substring(event.url.lastIndexOf('pageSize') + 9, event.url.length));
+          } else {
+            if (!event.url.includes('page=') || !this.pageIndex) {
+              this.pageIndex = 0;
+            }
+            if (!event.url.includes('pageSize=')) {
+              this.pageSize = 10;
+            }
+          }
+        } else {
+          this.pageIndex = 0;
+          this.pageSize = 10;
+        }
+        this.getAllHouses();
       }
     });
   }
@@ -76,26 +93,5 @@ export class HousesPageComponent implements OnInit {
       relativeTo: this.route,
       queryParams: { page: $event.pageIndex + 1, pageSize: $event.pageSize },
     });
-  }
-  SubscribeToRouterEvents() {
-    let event = this.router;
-    if (event.url) {
-      if (event.url.includes('page=') || event.url.includes('pageSize=')) {
-        this.pageIndex =
-          Number(event.url.substring(event.url.lastIndexOf('page=') + 5, event.url.lastIndexOf('&'))) - 1;
-        this.pageSize = Number(event.url.substring(event.url.lastIndexOf('pageSize') + 9, event.url.length));
-      } else {
-        if (!event.url.includes('page=') || !this.pageIndex) {
-          this.pageIndex = 0;
-        }
-        if (!event.url.includes('pageSize=')) {
-          this.pageSize = 10;
-        }
-      }
-    } else {
-      this.pageIndex = 0;
-      this.pageSize = 10;
-    }
-    this.getAllHouses();
   }
 }
