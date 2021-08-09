@@ -1,9 +1,18 @@
 {
   "title": "Game of Thrones",
   "text": "translate is working",
-  "device": {
+  "house": {
     "name_label": "Name",
     "title_label": "Title",
-    "region_label": "Region"
+    "region_label": "Region",
+    "coatOfArms_label": "Coat of arms",
+    "words_label": "Words",
+    "seats_label": "Seats",
+    "currentLord_label": "Current lord",
+    "Heir_label": "Heir",
+    "founded_label": "Founded",
+    "diedOut_label": "Died out",
+    "swornMembers_label": "Sworn members",
+    "overLord_label": "Overlord"
   }
 }
