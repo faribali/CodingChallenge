@@ -6,7 +6,7 @@
 <div *ngIf="house" class="container">
   <mat-toolbar>
     <header >
-      <a routerLink="/"> Houses </a> > <span> {{house.name}}</span>
+      <a  [routerLink]="" (click)="backtoHouses()"> Houses </a> >  <span> {{house.name}}</span>
     </header>
   </mat-toolbar>
   <div class="content">

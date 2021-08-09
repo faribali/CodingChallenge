@@ -108,4 +108,8 @@ export class HouseDetailsComponent implements OnInit {
       data: characterDetails,
     });
   }
+
+  backtoHouses(): void {
+    this.location.back();
+  }
 }
