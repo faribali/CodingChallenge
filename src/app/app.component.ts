@@ -10,6 +10,5 @@ export class AppComponent {
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
   }
-
   title = 'codingChallenge';
 }

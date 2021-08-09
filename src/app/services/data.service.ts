@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
@@ -70,6 +70,7 @@ export class DataService<T> {
     }, {});
     return this.findingLastPageNumber(paginationObject);
   }
+
   findingLastPageNumber(paginationObject: { last?: any }): number {
     if (paginationObject.last !== undefined) {
       let length = paginationObject.last.substring(

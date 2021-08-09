@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
@@ -24,7 +24,8 @@ export class HouseDetailsComponent implements OnInit {
     private houseService: HouseService,
     private location: Location,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   house: IHouse;
@@ -33,7 +34,7 @@ export class HouseDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) {
-      // to list page
+      this.router.navigateByUrl('/');
     } else {
       this.id = id;
     }
@@ -61,6 +62,7 @@ export class HouseDetailsComponent implements OnInit {
   overlordExists(): boolean {
     return this.house.overlord !== '';
   }
+
   getOverLordName(url: string): void {
     this.houseService.getSpecificHouse(url).subscribe({
       next: (res: IHouse) => {
@@ -75,6 +77,7 @@ export class HouseDetailsComponent implements OnInit {
   swornListIsNOTEmpty(): boolean {
     return this.house.swornMembers.length !== 0;
   }
+
   getSwornMembersName(): void {
     for (let characterUrl of this.house.swornMembers) {
       this.characterService.getCharacter(characterUrl).subscribe({

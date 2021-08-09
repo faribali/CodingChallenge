@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HouseService } from '../../services/house.service';
 import { IHouse } from '../../models/house';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
 import { IPaginatedList } from '../../models/paginated-list';
 
@@ -26,6 +26,7 @@ export class HousesPageComponent implements OnInit {
   ngOnInit(): void {
     this.getAllHouses();
   }
+
   getAllHouses(): void {
     this.showLoadingSpinner = true;
     this.houseService.getAllHouses(this.params).subscribe({

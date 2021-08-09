@@ -17,7 +17,3 @@ export interface IHouse {
   cadetBranches: [];
   swornMembers: [];
 }
-
-export interface IHouseList {
-  housesList: IHouse[];
-}
