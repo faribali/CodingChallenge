@@ -1,7 +1,15 @@
 
 
+@font-face {
+  font-family: "GameOfThrones";
+  src:local("GameOfThrones"), url("./assets/fonts/GameOfThrones.ttf") format("truetype");
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
 
 .mat-dialog-container{
   padding: 0 !important;
