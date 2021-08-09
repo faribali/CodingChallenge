@@ -30,7 +30,6 @@ export class HousesPageComponent implements OnInit {
             this.pageSize = Number(event.url.substring(event.url.lastIndexOf('pageSize') + 9, event.url.length));
           } else {
             if (!event.url.includes('page=') || !this.pageIndex) {
-              debugger;
               this.pageIndex = 0;
             }
             if (!event.url.includes('pageSize=')) {
@@ -55,11 +54,11 @@ export class HousesPageComponent implements OnInit {
   params: {};
 
   ngOnInit(): void {
-    this.getPagingParameterFromURL();
+    this.getPagingParametersFromURL();
     this.getAllHouses();
   }
 
-  getPagingParameterFromURL(): void {
+  getPagingParametersFromURL(): void {
     if (this.route.snapshot.queryParams.pageSize) {
       this.pageSize = Number(this.route.snapshot.queryParams.pageSize);
     } else {
