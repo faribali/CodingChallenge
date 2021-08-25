@@ -22,7 +22,7 @@ export class HousesPageComponent implements OnInit {
     private router: Router
   ) {
     this.router.events.subscribe((event: NavigationEvent) => {
-      if (event instanceof NavigationStart) {
+      if (event instanceof NavigationEnd) {
         if (event.url === '/' || (event.url.includes('page=') && event.url.includes('pageSize='))) {
           this.getPagingParametersFromURL();
           this.getAllHouses();
