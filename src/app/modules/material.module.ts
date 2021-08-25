@@ -9,7 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { customPaginatorIntl } from '../../classes/customPaginatorIntl';
+import { customPaginatorIntl } from '../classes/customPaginatorIntl';
 
 @NgModule({
   declarations: [],

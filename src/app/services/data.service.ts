@@ -27,7 +27,7 @@ export class DataService<T> {
 
   getList$(resourceName: string, params: any): Observable<IPaginatedList<IHouse>> {
     const url = `${WEB_API_URL}/${resourceName}`;
-    const action = this.http.get<IHouse[]>(url, { observe: 'response', params: params });
+    const action = this.http.get(url, { observe: 'response', params: params });
     return action.pipe(
       retry(1),
       catchError(this.handleError),
@@ -71,7 +71,7 @@ export class DataService<T> {
     return this.findingLastPageNumber(paginationObject);
   }
 
-  findingLastPageNumber(paginationObject: { last?: any }): number {
+  private findingLastPageNumber(paginationObject: { last?: any }): number {
     if (paginationObject.last !== undefined) {
       let length = paginationObject.last.substring(
         paginationObject.last.lastIndexOf('page=') + 5,
