@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { IHouse } from '../models/house';
 import { DataService } from './data.service';
@@ -14,10 +13,9 @@ const RESOURCE_NAME = 'houses';
 export class HouseService {
   constructor(private dataService: DataService<IHouse>) {}
 
-  apiUrl = environment.apiUrl;
   params = {};
 
-  getAllHouses(params: {}): Observable<any> {
+  getAllHouses(params: {}): Observable<IPaginatedList<IHouse>> {
     return this.dataService.getList$(RESOURCE_NAME, params).pipe(
       tap((list: IPaginatedList<IHouse>) => {
         list?.items.forEach((house) => this.assignId(house));
@@ -27,7 +25,8 @@ export class HouseService {
   getSpecificHouse(url: string): Observable<IHouse> {
     return this.dataService.getRaw$(url);
   }
-  getHouseWithId(id: string): Observable<any> {
+
+  getHouseWithId(id: string): Observable<IHouse> {
     return this.dataService.getSingle$(RESOURCE_NAME, id).pipe(tap((house: IHouse) => this.assignId(house)));
   }
 

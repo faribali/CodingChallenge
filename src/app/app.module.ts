@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HouseCardComponent } from './components/house-card/house-card.component';
 import { HouseDetailsComponent } from './components/house-details/house-details.component';
 import { CharacterDialogComponent } from './components/dialogs/character-dialog/character-dialog.component';
-import { MaterialModule } from './modules/material/material.module';
+import { MaterialModule } from './modules/material.module';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);

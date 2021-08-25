@@ -43,7 +43,7 @@ export class HouseDetailsComponent implements OnInit {
 
   getHouseWithId(houseId: string): void {
     this.houseService.getHouseWithId(houseId).subscribe({
-      next: (res) => {
+      next: (res: IHouse) => {
         this.house = res;
         if (this.overlordExists()) {
           this.getOverLordName(this.house.overlord);

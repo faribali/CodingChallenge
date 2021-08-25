@@ -5,7 +5,7 @@
   <hr  />
   <mat-card-content >
     <div class="feature" >
-      <p class="mat-caption title"> Region: {{house.region}}</p>
+      <p class="mat-caption title" *ngIf="house.region!==''"> Region: {{house.region}}</p>
       <p class="mat-caption info" *ngIf="house.words!==''">Words: {{house.words}}</p>
     </div>
   </mat-card-content>
