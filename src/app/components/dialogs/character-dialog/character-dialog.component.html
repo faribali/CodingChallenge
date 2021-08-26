@@ -1,35 +1,46 @@
-
 <div class="modal">
 
-<div class="modal-header" > <h1>{{data.name}}</h1></div>
+  <div class="modal-header"><h1>{{data.name}}</h1></div>
 
-<div class="modal-content">
+  <div class="modal-content">
 
-  <mat-list>
-    <mat-list-item role="listitem" *ngIf="data.name !== ''">
-      <h5 matLine>Name</h5>
-      <p matLine>
-        {{data.name}}
-      </p>
-    </mat-list-item>
-    <mat-list-item *ngIf="data.gender !== ''" role="listitem" >  <h5 matLine>Gender</h5><p matLine>{{data.gender}} </p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.culture!== ''">  <h5 matLine>Culture</h5><p matLine>{{data.culture}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.born !== ''">  <h5 matLine>Born</h5><p matLine>{{data.born}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.died !== ''">  <h5 matLine>Died</h5><p matLine>{{data.died}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.titles.length !== 0  && data.titles[0] !== ''">  <h5 matLine>Title's list</h5><p matLine *ngFor="let title of data.titles" ><b>* </b> {{title}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.aliases.length !== 0 && data.aliases[0] !== ''">  <h5 matLine>Aliases</h5><p matLine *ngFor="let alias of data.aliases" ><b>* </b> {{alias}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.books.length !== 0 ">  <h5 matLine>Books</h5><p matLine *ngFor="let book of data.books" ><b>* </b> {{book}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.povBooks.length !== 0 ">  <h5 matLine>PowBooks list</h5><p matLine *ngFor="let povbook of data.povBooks" ><b>* </b> {{povbook}}</p></mat-list-item>
-    <mat-list-item role="listitem" *ngIf="data.tvSeries.length !== 0  &&  data.tvSeries[0] !==''">  <h5 matLine>tv series</h5><p matLine *ngFor="let tvserie of data.tvSeries" ><b>* </b> {{tvserie}}</p></mat-list-item>
-  </mat-list>
+    <mat-list>
+      <mat-list-item *ngIf="data.name !== ''" role="listitem">
+        <h5 matLine>Name</h5>
+        <p matLine>
+          {{data.name}}
+        </p>
+      </mat-list-item>
+      <mat-list-item *ngIf="data.gender !== ''" role="listitem"><h5 matLine>Gender</h5>
+        <p matLine>{{data.gender}} </p></mat-list-item>
+      <mat-list-item *ngIf="data.culture!== ''" role="listitem"><h5 matLine>Culture</h5>
+        <p matLine>{{data.culture}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.born !== ''" role="listitem"><h5 matLine>Born</h5>
+        <p matLine>{{data.born}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.died !== ''" role="listitem"><h5 matLine>Died</h5>
+        <p matLine>{{data.died}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.titles.length !== 0  && data.titles[0] !== ''" role="listitem"><h5 matLine>Title's
+        list</h5>
+        <p *ngFor="let title of data.titles" matLine><b>* </b> {{title}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.aliases.length !== 0 && data.aliases[0] !== ''" role="listitem"><h5 matLine>
+        Aliases</h5>
+        <p *ngFor="let alias of data.aliases" matLine><b>* </b> {{alias}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.books.length !== 0 " role="listitem"><h5 matLine>Books</h5>
+        <p *ngFor="let book of data.books" matLine><b>* </b> {{book}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.povBooks.length !== 0 " role="listitem"><h5 matLine>PowBooks list</h5>
+        <p *ngFor="let povbook of data.povBooks" matLine><b>* </b> {{povbook}}</p></mat-list-item>
+      <mat-list-item *ngIf="data.tvSeries.length !== 0  &&  data.tvSeries[0] !==''" role="listitem"><h5 matLine>tv
+        series</h5>
+        <p *ngFor="let tvserie of data.tvSeries" matLine><b>* </b> {{tvserie}}</p></mat-list-item>
+    </mat-list>
 
-</div>
+  </div>
 
-<div class="modal-footer" >
+  <div class="modal-footer">
 
     <button mat-button mat-dialog-close>Close</button>
 
-</div>
+  </div>
 
 </div>
 

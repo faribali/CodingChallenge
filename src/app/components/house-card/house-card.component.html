@@ -1,18 +1,18 @@
-<mat-card  class="mat-elevation-z4 card" >
-  <mat-card-header >
-    <mat-card-title  >{{house.name}}</mat-card-title>
+<mat-card class="mat-elevation-z4 card">
+  <mat-card-header>
+    <mat-card-title>{{house.name}}</mat-card-title>
   </mat-card-header>
-  <hr  />
-  <mat-card-content >
-    <div class="feature" >
-      <p class="mat-caption title" *ngIf="house.region!==''"> Region: {{house.region}}</p>
-      <p class="mat-caption info" *ngIf="house.words!==''">Words: {{house.words}}</p>
+  <hr/>
+  <mat-card-content>
+    <div class="feature">
+      <p *ngIf="house.region!==''" class="mat-caption title"> Region: {{house.region}}</p>
+      <p *ngIf="house.words!==''" class="mat-caption info">Words: {{house.words}}</p>
     </div>
   </mat-card-content>
-  <mat-card-actions >
+  <mat-card-actions>
     <mat-list>
       <div class="card-button-row">
-        <button mat-button  (click)="showDetailsPage()" >More details</button>
+        <button (click)="showDetailsPage()" mat-button>More details</button>
       </div>
     </mat-list>
   </mat-card-actions>

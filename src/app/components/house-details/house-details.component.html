@@ -1,83 +1,85 @@
-
-
-<div class="spinner-content" *ngIf="!house">
-    <mat-spinner color="primary"></mat-spinner>
+<div *ngIf="!house" class="spinner-content">
+  <mat-spinner color="primary"></mat-spinner>
 </div>
 <div *ngIf="house" class="container">
   <mat-toolbar>
-    <header >
-      <a  [routerLink]="" (click)="backtoHouses()"> Houses </a> >  <span> {{house.name}}</span>
+    <header>
+      <a (click)="backtoHouses()" [routerLink]=""> Houses </a> > <span> {{house.name}}</span>
     </header>
   </mat-toolbar>
   <div class="content">
-    <div >
+    <div>
       <mat-list>
         <mat-list-item *ngIf="house.name !== ''">
           <h3 matLine> {{'house.name_label' | translate}}</h3>
-          <p matLine > {{house.name}} </p>
-        </mat-list-item >
+          <p matLine> {{house.name}} </p>
+        </mat-list-item>
         <mat-list-item *ngIf="house.titles[0] !== '' && house.titles.length >0 ">
           <h3 matLine>{{"house.title_label" | translate}}</h3>
-          <p matLine *ngFor="let title of house.titles" ><b>* </b> {{title}}</p>
-        </mat-list-item >
+          <p *ngFor="let title of house.titles" matLine><b>* </b> {{title}}</p>
+        </mat-list-item>
         <mat-list-item *ngIf="house.seats[0] !== '' && house.seats.length >0 ">
           <h3 matLine>{{"house.seats_label" | translate}}</h3>
-          <p matLine *ngFor="let seat of house.seats" ><b>* </b> {{seat}}</p>
-        </mat-list-item >
+          <p *ngFor="let seat of house.seats" matLine><b>* </b> {{seat}}</p>
+        </mat-list-item>
         <mat-list-item *ngIf="house.region !== ''">
           <h4 matLine>{{"house.region_label" | translate}}</h4>
-          <p matLine > {{house.region}} </p>
+          <p matLine> {{house.region}} </p>
         </mat-list-item>
         <mat-list-item *ngIf="house.coatOfArms !== ''">
           <h4 matLine>{{"house.coatOfArms_label" | translate}}</h4>
-          <p matLine > {{house.coatOfArms}} </p>
+          <p matLine> {{house.coatOfArms}} </p>
         </mat-list-item>
         <mat-list-item *ngIf="house.words!== ''">
           <h4 matLine>{{"house.words_label" | translate}}</h4>
-          <p matLine >{{house.words}}</p>
+          <p matLine>{{house.words}}</p>
         </mat-list-item>
         <mat-list-item *ngIf="house.founded !== ''">
           <h4 matLine>{{"house.founded_label" | translate}}</h4>
-          <p matLine >{{house.founded}}</p>
+          <p matLine>{{house.founded}}</p>
         </mat-list-item>
         <mat-list-item *ngIf="house.diedOut !== ''">
           <h4 matLine>{{"house.diedOut_label" | translate}}</h4>
-          <p matLine >{{house.diedOut}}</p>
+          <p matLine>{{house.diedOut}}</p>
         </mat-list-item>
         <mat-list-item *ngIf="house.overlord !== ''">
           <h4 matLine>{{"house.overLord_label" | translate}}</h4>
-          <p *ngIf="overLordName!==''" matLine >{{overLordName}}</p>
-          <mat-spinner  *ngIf="overLordName ===''" matLine diameter="40" ></mat-spinner>
+          <p *ngIf="overLordName!==''" matLine>{{overLordName}}</p>
+          <mat-spinner *ngIf="overLordName ===''" diameter="40" matLine></mat-spinner>
         </mat-list-item>
         <mat-list-item *ngIf="house.swornMembers.length !==0">
           <h3 matLine>{{"house.swornMembers_label" | translate}}</h3>
-          <ng-container  matLine *ngIf="swornMembersName.length !== 0 ">
-            <p  matLine *ngFor="let member of swornMembersName" ><b>* </b> {{member}}</p>
+          <ng-container *ngIf="swornMembersName.length !== 0 " matLine>
+            <p *ngFor="let member of swornMembersName" matLine><b>* </b> {{member}}</p>
           </ng-container>
-          <ng-container matLine *ngIf="swornMembersName.length === 0">
+          <ng-container *ngIf="swornMembersName.length === 0" matLine>
             <mat-spinner diameter="40"></mat-spinner>
           </ng-container>
-        </mat-list-item >
-         <mat-list-item *ngIf="house.founder !== ''">
-            <h4 matLine></h4>
-            <p matLine >
-              <button class="mat-list-button" matTooltip="click to show information about founder"  mat-button (click)="getCharacterDetails(house.founder)">Founder</button>
-            </p>
-          </mat-list-item >
+        </mat-list-item>
+        <mat-list-item *ngIf="house.founder !== ''">
+          <h4 matLine></h4>
+          <p matLine>
+            <button (click)="getCharacterDetails(house.founder)" class="mat-list-button" mat-button
+                    matTooltip="click to show information about founder">Founder
+            </button>
+          </p>
+        </mat-list-item>
 
         <mat-list-item *ngIf="house.heir !== ''">
           <h4 matLine></h4>
-          <p matLine >
-            <button class="mat-list-button" matTooltip="click to show information about heir"  mat-button (click)="getCharacterDetails(house.heir)">  {{'house.Heir_label' | translate}}</button>
+          <p matLine>
+            <button (click)="getCharacterDetails(house.heir)" class="mat-list-button" mat-button
+                    matTooltip="click to show information about heir">  {{'house.Heir_label' | translate}}</button>
           </p>
-        </mat-list-item >
+        </mat-list-item>
 
         <mat-list-item *ngIf="house.currentLord !== ''">
           <h4 matLine></h4>
-          <p matLine >
-            <button class="mat-list-button" matTooltip="click to show information about currentLord"  mat-button (click)="getCharacterDetails(house.currentLord)">  {{'house.currentLord_label' | translate}}</button>
+          <p matLine>
+            <button (click)="getCharacterDetails(house.currentLord)" class="mat-list-button" mat-button
+                    matTooltip="click to show information about currentLord">  {{'house.currentLord_label' | translate}}</button>
           </p>
-        </mat-list-item >
+        </mat-list-item>
       </mat-list>
     </div>
   </div>
